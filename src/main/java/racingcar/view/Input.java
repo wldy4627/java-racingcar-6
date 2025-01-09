@@ -10,4 +10,9 @@ public class Input {
         String carName = sc.nextLine();
         return carName;
     }
+
+    public int scanTryNum() {
+        int tryNum = sc.nextInt();
+        return tryNum;
+    }
 }

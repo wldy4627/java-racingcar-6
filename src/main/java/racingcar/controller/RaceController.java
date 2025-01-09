@@ -17,7 +17,17 @@ public class RaceController {
         List<Car> carList = service.getCarList(input.scanCarName());
     }
 
+    private int setTryNum() {
+        output.printInputTryNum();
+        return input.scanTryNum();
+    }
+
     public void startRace() {
         setCars();
+        int tryNum = setTryNum();
+
+        while (tryNum > 0) {
+
+        }
     }
 }
