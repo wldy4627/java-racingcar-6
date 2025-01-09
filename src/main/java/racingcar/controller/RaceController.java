@@ -18,11 +18,9 @@ public class RaceController {
         this.raceService = raceService;
     }
 
-    private List<Car> setCars() {
+    private List<Car> initializeCars() {
         output.printInputCarName();
-        List<Car> carList = raceService.setCarList(input.scanCarName());
-
-        return carList;
+        return raceService.setCarList(input.scanCarName());
     }
 
     private int setTryNum() {
@@ -31,18 +29,18 @@ public class RaceController {
     }
 
     public void startRace() {
-        List<Car> carList = setCars();
+        List<Car> carList = initializeCars();
         int tryNum = setTryNum();
 
         output.printStartRace();
         while (tryNum > 0) {
-            raceService.race();
+            raceService.race(carList);
             output.printCarPosition(carList);
 
             System.out.println("\n");
             tryNum--;
         }
 
-        output.printRaceWinnerCar(raceService.findWinnerCar());
+        output.printRaceWinnerCar(raceService.findWinnerCar(carList));
     }
 }

@@ -8,28 +8,25 @@ import java.util.List;
 
 public class RaceService {
 
-    private List<Car> carList = new ArrayList<>();
-    private int carNum;
-
-    public List<Car> setCarList(String cars) {
-        String[] carNameArray = cars.split(",");
+    public List<Car> setCarList(String carsName) {
+        String[] carNameArray = carsName.split(",");
+        List<Car> carList = new ArrayList<>();
         for (String carName : carNameArray) {
             if (carName.length() > 5) {
                 throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
             }
             carList.add(new Car(carName));
         }
-        carNum = carNameArray.length;
         return carList;
     }
 
-    public void race() {
-        for (int i = 0; i < carNum; i++) {
-            carList.get(i).carMove();
+    public void race(List<Car> carList) {
+        for (Car car : carList) {
+            car.carMove();
         }
     }
 
-    public List<String> findWinnerCar() {
+    public List<String> findWinnerCar(List<Car> carList) {
         carList.sort(Comparator.comparingInt(Car::getPosition));
 
         int maxPosition = carList.get(carList.size() - 1).getPosition();
