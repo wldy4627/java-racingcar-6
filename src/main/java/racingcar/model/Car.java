@@ -19,7 +19,11 @@ public class Car {
     public String getName() {
         return name;
     }
-    public String getPosition() {
+    public int getPosition() {
+        return position;
+    }
+
+    public String positionDashes() {
         String positionDashes = "-".repeat(position);
         return positionDashes;
     }

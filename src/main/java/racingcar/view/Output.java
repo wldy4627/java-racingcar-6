@@ -20,7 +20,12 @@ public class Output {
 
     public void printCarPosition(List<Car> carList) {
         for (Car car : carList) {
-            System.out.println(car.getName() + ": " + car.getPosition());
+            System.out.println(car.getName() + ": " + car.positionDashes());
         }
+    }
+
+    public void printRaceWinnerCar(List<String> winnerCarNameList) {
+        String winnerCarNames = String.join(", ", winnerCarNameList);
+        System.out.println("최종 우승자 : " + winnerCarNames);
     }
 }

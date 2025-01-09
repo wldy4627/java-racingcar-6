@@ -3,6 +3,7 @@ package racingcar.service;
 import racingcar.model.Car;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class RaceService {
@@ -10,7 +11,7 @@ public class RaceService {
     private List<Car> carList = new ArrayList<>();
     private int carNum;
 
-    public List<Car> getCarList(String cars) {
+    public List<Car> setCarList(String cars) {
         String[] carNameArray = cars.split(",");
         for (String carName : carNameArray) {
             if (carName.length() > 5) {
@@ -23,8 +24,22 @@ public class RaceService {
     }
 
     public void race() {
-        for (int i = 0; i < carList.size(); i++) {
+        for (int i = 0; i < carNum; i++) {
             carList.get(i).carMove();
         }
+    }
+
+    public List<String> findWinnerCar() {
+        carList.sort(Comparator.comparingInt(Car::getPosition));
+
+        int maxPosition = carList.get(carList.size() - 1).getPosition();
+
+        List<String> winnerCarNameList = new ArrayList<>();
+        for (Car car : carList) {
+            if (car.getPosition() == maxPosition) {
+                winnerCarNameList.add(car.getName());
+            }
+        }
+        return winnerCarNameList;
     }
 }

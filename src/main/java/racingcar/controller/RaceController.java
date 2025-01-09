@@ -14,7 +14,7 @@ public class RaceController {
 
     private List<Car> setCars() {
         output.printInputCarName();
-        List<Car> carList = service.getCarList(input.scanCarName());
+        List<Car> carList = service.setCarList(input.scanCarName());
 
         return carList;
     }
@@ -36,5 +36,7 @@ public class RaceController {
             System.out.println("\n");
             tryNum--;
         }
+
+        output.printRaceWinnerCar(service.findWinnerCar());
     }
 }
