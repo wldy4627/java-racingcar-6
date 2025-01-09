@@ -28,4 +28,8 @@ public class Output {
         String winnerCarNames = String.join(", ", winnerCarNameList);
         System.out.println("최종 우승자 : " + winnerCarNames);
     }
+
+    public void printNewLine() {
+        System.out.println("\n");
+    }
 }
