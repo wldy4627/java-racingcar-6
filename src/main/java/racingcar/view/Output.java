@@ -7,15 +7,15 @@ import java.util.List;
 public class Output {
 
     public void printInputCarName() {
-        System.out.println("경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)");
+        System.out.println(Message.INPUT_CAR_NAME.getMessage());
     }
 
     public void printInputTryNum() {
-        System.out.println("시도할 횟수는 몇회인가요?");
+        System.out.println(Message.INPUT_TRY_NUM.getMessage());
     }
 
     public void printStartRace() {
-        System.out.println("\n실행 결과");
+        System.out.println(Message.START_RACE.getMessage());
     }
 
     public void printCarPosition(List<Car> carList) {
@@ -26,7 +26,7 @@ public class Output {
 
     public void printRaceWinnerCar(List<String> winnerCarNameList) {
         String winnerCarNames = String.join(", ", winnerCarNameList);
-        System.out.println("최종 우승자 : " + winnerCarNames);
+        System.out.println(Message.WINNER_MESSAGE.getMessage() + winnerCarNames);
     }
 
     public void printNewLine() {
