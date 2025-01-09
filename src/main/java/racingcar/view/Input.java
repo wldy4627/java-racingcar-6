@@ -12,7 +12,21 @@ public class Input {
     }
 
     public int scanTryNum() {
-        int tryNum = sc.nextInt();
-        return tryNum;
+        String input = sc.nextLine();
+
+        if (isNumeric(input)) {
+            return Integer.parseInt(input);
+        } else {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+        }
+    }
+
+    private boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
