@@ -33,12 +33,10 @@ public class RaceController {
         int tryNum = setTryNum();
 
         output.printStartRace();
-        while (tryNum > 0) {
+        for (int i = 0; i < tryNum; i++) {
             raceService.race(carList);
             output.printCarPosition(carList);
-
-            System.out.println("\n");
-            tryNum--;
+            System.out.println();
         }
 
         output.printRaceWinnerCar(raceService.findWinnerCar(carList));
