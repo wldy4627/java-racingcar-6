@@ -31,6 +31,7 @@ public class RaceController {
     public void startRace() {
         List<Car> carList = initializeCars();
         int tryNum = setTryNum();
+        raceService.validateTryNum(tryNum);
 
         output.printStartRace();
         for (int i = 0; i < tryNum; i++) {

@@ -20,6 +20,12 @@ public class RaceService {
         return carList;
     }
 
+    public void validateTryNum(int tryNum) {
+        if (tryNum < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+    }
+
     public void race(List<Car> carList) {
         for (Car car : carList) {
             car.carMove();
@@ -37,4 +43,5 @@ public class RaceService {
                     .map(Car::getName)
                     .collect(Collectors.toList());
     }
+
 }
