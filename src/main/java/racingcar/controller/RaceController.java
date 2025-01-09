@@ -8,13 +8,19 @@ import java.util.List;
 
 public class RaceController {
 
-    Output output = new Output();
-    Input input = new Input();
-    RaceService service = new RaceService();
+    private final Output output;
+    private final Input input;
+    private final RaceService raceService;
+
+    public RaceController(Output output, Input input, RaceService raceService) {
+        this.output = output;
+        this.input = input;
+        this.raceService = raceService;
+    }
 
     private List<Car> setCars() {
         output.printInputCarName();
-        List<Car> carList = service.setCarList(input.scanCarName());
+        List<Car> carList = raceService.setCarList(input.scanCarName());
 
         return carList;
     }
@@ -30,13 +36,13 @@ public class RaceController {
 
         output.printStartRace();
         while (tryNum > 0) {
-            service.race();
+            raceService.race();
             output.printCarPosition(carList);
 
             System.out.println("\n");
             tryNum--;
         }
 
-        output.printRaceWinnerCar(service.findWinnerCar());
+        output.printRaceWinnerCar(raceService.findWinnerCar());
     }
 }
