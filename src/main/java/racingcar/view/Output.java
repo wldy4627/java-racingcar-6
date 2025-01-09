@@ -1,5 +1,9 @@
 package racingcar.view;
 
+import racingcar.model.Car;
+
+import java.util.List;
+
 public class Output {
 
     public void printInputCarName() {
@@ -8,5 +12,15 @@ public class Output {
 
     public void printInputTryNum() {
         System.out.println("시도할 횟수는 몇회인가요?");
+    }
+
+    public void printStartRace() {
+        System.out.println("\n실행 결과");
+    }
+
+    public void printCarPosition(List<Car> carList) {
+        for (Car car : carList) {
+            System.out.println(car.getName() + ": " + car.getPosition());
+        }
     }
 }

@@ -22,4 +22,9 @@ public class RaceService {
         return carList;
     }
 
+    public void race() {
+        for (int i = 0; i < carList.size(); i++) {
+            carList.get(i).carMove();
+        }
+    }
 }
