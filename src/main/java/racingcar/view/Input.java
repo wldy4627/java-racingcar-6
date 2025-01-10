@@ -8,6 +8,9 @@ public class Input {
 
     public String scanCarName() {
         String carName = sc.nextLine();
+        if (carName.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름을 입력해주세요.");
+        }
         return carName;
     }
 

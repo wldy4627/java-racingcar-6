@@ -20,7 +20,7 @@ public class Output {
 
     public void printCarPosition(List<Car> carList) {
         for (Car car : carList) {
-            System.out.println(car.getName() + ": " + car.positionDashes());
+            System.out.println(car.getName() + " : " + car.positionDashes());
         }
     }
 
