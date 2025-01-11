@@ -24,8 +24,7 @@ public class Car {
     }
 
     public String positionDashes() {
-        String positionDashes = "-".repeat(position);
-        return positionDashes;
+        return "-".repeat(position);
     }
 
     public void carMove() {
