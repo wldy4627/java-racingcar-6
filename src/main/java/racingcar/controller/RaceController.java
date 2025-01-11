@@ -37,7 +37,7 @@ public class RaceController {
         for (int i = 0; i < tryNum; i++) {
             raceService.race(carList);
             output.printCarPosition(carList);
-            output.printNewLine();
+            System.out.println("");
         }
 
         output.printRaceWinnerCar(raceService.findWinnerCar(carList));

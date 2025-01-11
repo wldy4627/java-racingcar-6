@@ -28,8 +28,4 @@ public class Output {
         String winnerCarNames = String.join(", ", winnerCarNameList);
         System.out.println(Message.WINNER_MESSAGE.getMessage() + winnerCarNames);
     }
-
-    public void printNewLine() {
-        System.out.println("\n");
-    }
 }
