@@ -11,13 +11,20 @@ public class RaceService {
     public List<Car> setCarList(String carsName) {
         String[] carNameArray = carsName.split(",");
         List<Car> carList = new ArrayList<>();
+
         for (String carName : carNameArray) {
-            if (carName.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
-            }
+            validateCarName(carName);
             carList.add(new Car(carName));
         }
         return carList;
+    }
+
+    private void validateCarName(String carName) {
+        if (carName.length() > 5) {
+            throw new IllegalArgumentException("자동차 이름은 5자 이하여야 합니다.");
+        } else if (carName.isEmpty()) {
+            throw new IllegalArgumentException("자동차 이름이 덜 입력되었습니다.");
+        }
     }
 
     public void validateTryNum(int tryNum) {
