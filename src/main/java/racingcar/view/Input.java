@@ -14,22 +14,9 @@ public class Input {
         return carName;
     }
 
-    public int scanTryNum() {
-        String input = sc.nextLine();
-
-        if (isNumeric(input)) {
-            return Integer.parseInt(input);
-        } else {
-            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
-        }
+    public String scanTryNum() {
+        String tryNum = sc.nextLine();
+        return tryNum;
     }
 
-    private boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 }

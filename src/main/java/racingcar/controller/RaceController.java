@@ -25,7 +25,23 @@ public class RaceController {
 
     private int setTryNum() {
         output.printInputTryNum();
-        return input.scanTryNum();
+
+        String tryNum = input.scanTryNum();
+
+        if (isNumeric(tryNum)) {
+            return Integer.parseInt(tryNum);
+        } else {
+            throw new IllegalArgumentException("유효하지 않은 입력입니다.");
+        }
+    }
+
+    private boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public void startRace() {
